@@ -1,0 +1,12 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    {% for question in questions %}
+        <span>
+        {{ question.text }}
+        {% for answers in question.get_choices %}
+            <li>{{ answers.text }}</li>
+        {% endfor %}</span>
+    {% endfor %}
+{% endblock %}
+{% block footer%}footer2{% endblock %}

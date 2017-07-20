@@ -1,0 +1,9 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    {% for map in maps %}
+        {{ map.name }}
+    {% endfor %}
+
+{% endblock %}
+{% block footer%}footer{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <label>Содержание вопроса</label>
+        <label>
+            <input type="text" name="text">
+        </label>
+        {% with ''|center:4 as range %}
+        {% for _ in range %}
+            <p>Ответ {{ forloop.counter }}
+                <label>
+                    <input type="checkbox" name="right{{ forloop.counter }}">
+                </label>
+                <label>
+                    <input type="text" name="answer{{ forloop.counter }}"/>
+                </label>
+            </p>
+        {% endfor %}
+    {% endwith %}
+    <button type="submit" class="btn_all button_green">Создать</button>
+    </form>
+{% endblock %}
+{% block footer%}footer{% endblock %}

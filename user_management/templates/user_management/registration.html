@@ -1,0 +1,39 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+    <form method="post" class="reg_form">
+        {% csrf_token %}
+        <div class="lbl_block">
+            <label>Имя</label>
+
+            <input type="text" class="input" name="first_name">
+        </div>
+        <div class="lbl_block">
+            <label>Фамилия</label>
+
+            <input type="text" class="input" name="second_name">
+        </div>
+        <div class="lbl_block">
+            <label>Email</label>
+
+            <input type="text" class="input" name="email">
+        </div>
+        <div class="lbl_block">
+            <label>Пароль</label>
+
+            <input type="password" class="input" name="password">
+        </div>
+        <div class="lbl_block">
+            <label>Повтор пароля</label>
+
+            <input type="password" class="input" name="confirm_password">
+        </div>
+        <i style="color: red">{{ error }}</i>
+        <div class="text-right">
+            <button type="submit" class="btn_all button_green">Зарегистрироваться</button>
+        </div>
+    </form>
+    </div>
+{% endblock %}
+{% block footer%}footer{% endblock %}

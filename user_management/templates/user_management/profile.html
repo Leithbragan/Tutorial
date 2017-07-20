@@ -1,0 +1,32 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="profile_info">
+            <div class="profile_name">
+                <div id="profileImage"></div>
+                <span id="firstName">{{ user.user.first_name }}</span> <span id="lastName">{{ user.second_name }}</span>
+            </div>
+            <span class="ps_text">{{ user.user.email_user }}</span>
+        </div>
+
+    <div class="results">
+        <ul class="list_res">
+            <h3 class="user_lessons_title">Список пройденных уроков</h3>
+            {% for result in results %}
+                <li class="user_lessons">{{ result.lesson.name }} <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar"
+                         aria-valuenow="{{ result.percent }}" aria-valuemin="0"
+                         aria-valuemax="100" style="width: {{ result.percent }}%">
+                        {{ result.percent }}%
+                        <span class="sr-only">{{ result.percent }}% Complete (success)</span>
+                    </div>
+                </div></li>
+
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+{% endblock %}
+{% block footer %}footer
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<form method="post">
+    {% csrf_token %}
+    <div class="test_text">
+        {% for question in test %}
+            <div class="test_question">{{ question.text }}</div>
+            <input type="hidden" name="question{{ question.id }}" value="{{ question.id }}">
+            <div class="test_answer text-left">
+                {% for answer in question.get_choices %}
+                    <label for="answer{{ question.id }}">
+                        <input type="radio" name="answer{{ question.id }}" id="answer{{ question.id }}" value="{{ answer.id }}">{{ answer.text }}</label>
+
+                {% endfor %}
+            </div>
+
+        {% endfor %}
+        <div class="test_btns text-right">
+            <label>
+                <button type="submit" class="button_green btn_all">Завершить тест</button>
+            </label>
+            <a href="{% url 'maps:lesson_page' map_id lesson_id %}" class="button_white btn_all">Вернуться к уроку</a>
+        </div>
+    </div>
+</form>
+</div>
+{% endblock %}
+{% block footer%}footer2{% endblock %}

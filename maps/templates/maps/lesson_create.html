@@ -1,0 +1,20 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <form method="post" class="create" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="lbl_block">
+                <label>Название</label><input type="text" class="input" name="name">
+            </div>
+            <div class="lbl_block">
+                <label>Содержание</label><input type="text" class="input" name="text">
+            </div>
+                <label>Изображение</label><input type="file" class="input_file" name="image">
+            <div class="text-right">
+                <button type="submit" class="btn_all button_green">Создать</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block footer%}footer{% endblock %}

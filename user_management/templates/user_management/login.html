@@ -1,0 +1,13 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="text">
+            <span>Данный сайт разработат в раках лаборатории КФУ</span>
+            <span>факультета ВШ ИТИС. Руководитель М,М. Абрамский.</span>
+            <span>Ознакомится с программой обучения вы можете <a class="link_green">тут.</a></span>
+            <span>Чтобы начать обучение необходимо <a class="link_green" data-target="#modal_login" data-toggle="modal">войти</a> или <a class="link_green" href="{% url 'user_management:registration' %}">зарегистрироваться.</a></span>
+        </div>
+    </div>
+{% endblock %}
+{% block footer%}footer{% endblock %}

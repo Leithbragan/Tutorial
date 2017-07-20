@@ -1,0 +1,20 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block links %}
+
+{% endblock %}
+{% block content %}
+    <div class="back">
+        <div class="container">
+            {% for lesson in lessons %}
+                <div class="lesson_name">
+                    <a href="{% url 'maps:lesson_page' map_id lesson.id %}"><img src="{{ lesson.image.url }}"
+                                                                                 style="width: 200px; height: 200px">
+                        <p class="ln_text"><span>{{ lesson.name }}</span></p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}footer{% endblock %}

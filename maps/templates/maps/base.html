@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/help.css' %}" type="text/css">
+    {% block links %}
+    {% endblock %}
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'user_management:profile' %}"><img src="{% static 'img/itis.png' %}"
+                                                                                    class="itis_img"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            {% if user.is_anonymous %}
+            {% else %}
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'maps:lessons' 1 %}">Карта</a></li>
+                </ul>
+            {% endif %}
+            {% if user.moder %}
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Управление
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="{% url 'maps:map_create' %}">Создать карту</a></li>
+                        <li><a href="{% url 'maps:lesson_create' 1 %}">Создать урок</a></li>
+                        <li><a href="{% url 'maps:all' %}">Список карт</a></li>
+                        {% block others %}
+
+                        {% endblock %}
+                    </ul>
+                </div>
+            {% endif %}
+            <ul class="nav navbar-nav">
+                <li>{% block chains %}
+                {% endblock %}</li>
+            </ul>
+            {% if user.is_anonymous %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="button_green btn_all" href="#" data-target="#modal_login"
+                           data-toggle="modal">Войти</a></li>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="button_white btn_all" href="{% url 'user_management:logout' %}">Выйти</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="modal_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <div class="title">Вход</div>
+            </div>
+            <form method="post" class="log_form">
+                <div class="modal-body">
+                    {% csrf_token %}
+                    <div class="lbl_block">
+                        <label>Имя</label>
+                        <input type="text" class="input" name="username">
+                    </div>
+                    <div class="lbl_block">
+                        <label>Пароль</label>
+                        <input type="password" class="input" name="password">
+                    </div>
+                </div>
+                <div class="btn_block">
+                    <button class="button_green btn_all" type="submit">Войти</button>
+                    <button class="button_white btn_all" data-dismiss="modal">Закрыть</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="main-block">
+    {% block content %}{% endblock %}
+</div>
+
+
+<div class="{% block footer %}{% endblock %}">
+    <img class="kfu-logo" id="kpfu_logo" src="{% static 'img/kpfu_logo.png' %}" alt="KPFU logo">
+    <h4 class="footer-text">Students Educational Project 2017</h4>
+</div>
+
+</body>
+</html>

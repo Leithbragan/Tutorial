@@ -1,0 +1,341 @@
+.navbar {
+  height: 90px;
+  background-color: #fff;
+  border-color: #e7e5eb;
+  font-size: 30px;
+}
+.navbar .navbar-collapse {
+  margin-top: 25px;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #000;
+}
+.container {
+  width: 1250px;
+}
+.modal .title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #000;
+}
+.modal-header {
+  border-bottom: 4px solid #59ab8d;
+}
+.modal label {
+  width: 20%;
+  text-align: center;
+  font-size: 20px;
+}
+.input {
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 75%;
+  padding: 10px 20px;
+}
+.btn_all {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 4px;
+}
+.modal .btn_all {
+  width: 110px;
+}
+.button_white {
+  border: 1px solid #e4e4e4;
+  background: #fff;
+}
+.button_green {
+  border: 0;
+  background-color: #009f8e;
+}
+.modal .btn_block {
+  border-top: 1px solid #f3f3f3;
+  padding: 20px 30px 30px;
+  text-align: right;
+}
+.modal .lbl_block {
+  margin-bottom: 25px;
+}
+.text {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 80px;
+}
+.text span {
+  display: block;
+}
+a.link_green {
+  color: #009f8e;
+}
+.navbar-default .navbar-nav>li>a.active {
+  color: #009f8e;
+}
+label {
+  font-weight: normal;
+}
+
+
+
+
+
+/* TEST */
+.test_title {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+.test_question {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+.test_answer {
+  margin-left: 15%;
+}
+.test_answer label {
+  display: block;
+  font-size: 20px;
+  line-height: 1.5;
+}
+.test_answer input {
+  margin-right: 10px;
+}
+
+
+
+
+/* LESSON */
+.lesson_title {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.lesson_trgt {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+.lesson_text {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+
+
+/* PROFILE */
+.profile_info, .profile_status {
+  overflow: hidden;
+}
+#profileImage {
+  background: #009f8e;
+  width: 120px;
+  height: 120px;
+  color: #f3f3f3;
+  border-radius: 50%;
+  font-size: 35px;
+  text-align: center;
+  line-height: 120px;
+  margin: 20px 0;
+  display: inline-block;
+  margin-right: 25px;
+}
+.profile_info #firstName, .profile_info #lastName {
+  color: #009f8e;
+  font-size: 30px;
+}
+.profile_name {
+  float: left;
+}
+.profile_score {
+  float: right;
+  color: #009f8e;
+  font-size: 30px;
+  line-height: 140px;
+}
+.profile_score #ps_number {
+  font-size: 55px;
+}
+.profile_status {
+  margin-top: 50px;
+}
+.profile_status .profile_subject {
+  float: left;
+}
+.profile_status .profile_lesson {
+  float: right;
+}
+.profile_status .ps_title {
+  font-size: 45px;
+}
+.profile_status .ps_current_status {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 30px solid #009f8e;
+  box-shadow: 0 0 0 2px #000;
+  line-height: 170px;
+  text-align: center;
+  font-size: 40px;
+  color: #009f8e;
+  margin: 20px auto;
+}
+.profile_btn {
+  margin: 50px 0;
+}
+
+.footer {
+    background-color: #ffffff;
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.footer-text {
+    color: #111111;
+    margin: 15px 4% 0 0;
+    float: right;
+}
+
+.kfu-logo {
+    margin: 3px 10%;
+    width: 220px;
+}
+
+.reg_form .input {
+  width: 100%;
+}
+.reg_form label {
+  display: block;
+  font-size: 16px;
+}
+.reg_form button {
+  margin-top: 25px;
+}
+
+/*.input_file {*/
+  /*border: none;*/
+  /*width: auto;*/
+  /*padding: 0;*/
+  /*height: auto;*/
+/*}*/
+
+.file_upload{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.1s linear
+}
+.file_upload.focus{
+    box-shadow: 0 0 5px rgba(0,30,255,0.4)
+}
+.file_upload > button{
+    background: #7300df;
+    transition: background 0.2s;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #fff;
+    text-shadow: #6200bd 0 -1px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+.file_upload:hover > button{
+    background: #6200bd;
+    text-shadow: #5d00b3 0 -1px 0
+}
+.file_upload:active > button{
+    background: #5d00b3;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3) inset
+}
+
+.first_block {
+    display: inline-block;
+    width:100px;
+    height:100px;
+    padding:10px;
+}
+.second_block {
+    display: none;
+}
+.first_block:hover .second_block {
+    display: block;
+}
+
+.footer2 {
+    background-color: #ffffff;
+    height: 50px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.user_lessons {
+    color: #009f8e;
+    font-size: 25px;
+    font-family: Arial, serif
+}
+
+.user_lessons_title {
+    color: #009f8e;
+    font-size: 45px;
+    font-family: Arial, serif
+}
+
+.list_res {
+    list-style: none;
+}
+
+.results {
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+
+.lesson_name, .lesson_name img {
+position: relative;
+width: 200px;
+height: 200px;
+float: left;
+border-radius: 50%;
+    margin: 15px ;
+}
+
+.ln_text {
+overflow: hidden;
+position: absolute;
+width: 200px;
+height: 200px;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgb(255,255,255);
+color: green;
+visibility: hidden;
+opacity: 0;
+margin: 0;
+text-align: center;
+line-height: normal;
+font-size: 20px;
+    margin: 15px;
+}
+
+.lesson_name span {
+display:table-cell;
+vertical-align:middle;
+width: 200px;
+height: 200px;
+
+}
+
+.progress {
+display: block;
+}
+.lesson_name:hover .ln_text {
+visibility: visible;
+opacity: 1;
+}

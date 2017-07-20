@@ -1,0 +1,66 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block chains %}
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Уроки
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            {% for chain in child_list %}
+                <li><a href="{% url 'maps:lesson_page' map_id chain.lesson_child.id %}">{{ chain.lesson_child.name }}</a>
+                </li>
+            {% endfor %}
+            {% for chain in parent_list %}
+                <li>
+                    <a href="{% url 'maps:lesson_page' map_id chain.lesson_parent.id %}">{{ chain.lesson_parent.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+{% block others %}
+    <li><a href="{% url 'maps:question_create' map_id lesson.id %}">Создать вопрос</a></li>
+    <li><a href="{% url 'maps:questions' map_id lesson.id %}">Просмотрнть вопросы</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="lesson_title text-center">{{ lesson.name }}</div>
+        <div class="lesson_trgt text-center">{% if lesson.image.url is not None %}
+            <img src='{{ lesson.image.url }}' style="max-height: 100px; max-width: 100px"/>
+        {% endif %}</div>
+        <div class="lesson_text text-left">{{ lesson.text }}</div>
+        <div class="lesson_btn text-right">
+            <a href="{% url 'maps:lessons' map_id %}" class="button_white btn_all">вернуться к карте</a>
+            {% if lesson_user %}
+            {% else %}
+                <a href="{% url 'maps:lesson_test' map_id lesson.id %}" class="button_green btn_all">Пройти тест</a>
+            {% endif %}
+        </div>
+
+    </div>
+    {% if lesson_user.persent %}
+        <div class="lesson_title text-center">Статистика</div>
+        <div class="profile_status">
+            <div class="profile_subject">
+                <div class="ps_current_status">{{ lesson_user.percent }}%</div>
+            </div>
+        </div>
+    {% endif %}
+    {% if user.moder %}
+        <form method="post">
+            {% csrf_token %}
+            <label>
+                <select>
+                    {% for lesson in lessons %}
+                        <option name="chain_" value="{{ lesson.id }}">{{ lesson.id }} {{ lesson.name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <button type="submit" class="button_white btn_all">Связать</button>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}footer2{% endblock %}

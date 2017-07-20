@@ -1,0 +1,12 @@
+{% extends 'maps/base.html' %}
+{% load static %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <label>Название</label><input type="text" name="name"/>
+        <label>Тема</label><input type="text" name="them"/>
+        <label>Изображение</label><input type="file" name="image"/>
+        <button type="submit" class="btn_all button_green">Создать</button>
+    </form>
+{% endblock %}
+{% block footer%}footer{% endblock %}
